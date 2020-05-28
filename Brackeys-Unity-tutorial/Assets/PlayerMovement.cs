@@ -4,8 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     // reference to Player's Rigidbody component, drag the instance in the editor
     public Rigidbody Rb;
-    public float ForwardForce = 800f;
-    public float SidewaysForce = 600;
+    public float ForwardForce = 1000f;
+    public float SidewaysForce = 50f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey("d"))
         {
-            Rb.AddForce(SidewaysForce*Time.fixedDeltaTime, 0, 0);
+            Rb.AddForce(SidewaysForce*Time.fixedDeltaTime, 0, 0, ForceMode.VelocityChange);
         }
         if (Input.GetKey("a"))
         {
-            Rb.AddForce(-SidewaysForce*Time.fixedDeltaTime, 0, 0);
+            Rb.AddForce(-SidewaysForce*Time.fixedDeltaTime, 0, 0, ForceMode.VelocityChange);
         }
     }
 }
